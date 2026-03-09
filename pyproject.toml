@@ -35,4 +35,5 @@ dev = [
     "ipdb>=0.13.13",
     "pandas-stubs>=3.0.0.260204",
     "ruff>=0.15.4",
+    "basedpyright"
 ]
