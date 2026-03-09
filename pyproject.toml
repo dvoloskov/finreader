@@ -1,0 +1,38 @@
+[project]
+name = "finreader"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=3.0.1",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=6.0.2",
+]
+[project.optional-dependencies]
+test = [
+    'pytest'
+]
+[tool.ruff]
+[tool.ruff.lint]
+extend-select = [
+    'D'
+]
+ignore = [
+    'D203',
+    'D212'
+]
+[tool.ruff.format]
+quote-style = 'single'
+
+[tool.setuptools.package-data]
+'georead' = ["py.typed"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[dependency-groups]
+dev = [
+    "ipdb>=0.13.13",
+    "pandas-stubs>=3.0.0.260204",
+    "ruff>=0.15.4",
+]
