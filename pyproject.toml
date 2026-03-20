@@ -31,11 +31,8 @@ quote-style = 'single'
 pythonpath = ["."]
 
 [dependency-groups]
-test = [
-    "pytest>=9.0.2",
-]
 dev = [
-    {include = 'test'},
+    "pytest>=9.0.2",
     "ipdb>=0.13.13",
     "pandas-stubs>=3.0.0.260204",
     "ruff>=0.15.4",
