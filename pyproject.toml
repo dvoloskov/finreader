@@ -31,9 +31,14 @@ quote-style = 'single'
 pythonpath = ["."]
 
 [dependency-groups]
+test = [
+    "pytest>=9.0.2",
+]
 dev = [
+    {include = 'test'},
     "ipdb>=0.13.13",
     "pandas-stubs>=3.0.0.260204",
     "ruff>=0.15.4",
-    "basedpyright"
+    "basedpyright",
+    "jupyterlab>=4.5.6",
 ]
