@@ -8,3 +8,10 @@ wheels/
 
 # Virtual environments
 .venv
+
+# PII - Real Sberbank brokerage reports (42001JT_*.html contains investor name)
+42001JT_*.html
+
+# Jupyter notebooks
+Untitled.ipynb
+.ipynb_checkpoints/

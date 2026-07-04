@@ -1,0 +1,508 @@
+<html>
+    <HEAD>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <TITLE>
+          Отчет брокера
+          TEST001</TITLE>
+        <style>
+          td:not(.c, .red){
+          white-space: nowrap;
+          }
+        p {
+        font-weight: bold;
+        }
+        p.t1  {
+                font-weight: bold;
+                font-size: 10;
+                }
+        td {
+                  text-align: right;
+        }
+          td.red {
+                  text-align: center;
+                  color: red;
+                  font-weight: bold;
+                }
+          td.l {
+                  text-align: left;
+                }
+          td.ri {
+                  text-align: right;
+                }
+          td.fontBold{
+                  text-align: left;
+                  font-weight: bold;
+        }
+          .summary-row {
+          font-weight: bold;
+          background-color: #d9d9d9;
+          }
+          .summary-row2 {
+          font-size: 8px;
+          font-weight: bold;
+          background-color: #d9d9d9;
+          border: 1px solid #d9d9d9;
+          }
+          .table-header {
+          text-align: center;
+          background-color: #c4e9ec;
+          }
+          .summary-row td:first-child{
+          text-align: left;
+          }
+          .summary-row2 td:first-child{
+          text-align: left;
+          }
+      
+          .letter {
+          color: blue;
+          font-weight: bold;
+          font-family: Calibri;
+          font-size: 12.376pt;
+          }
+          .privat{
+          font-weight: bold;
+          font-family: Calibri;
+          font-size: 11pt;
+          }
+          table {
+          border: 1px solid white;
+          border-collapse: collapse;
+          }
+          body {
+          font-family: 'Calibri', sans-serif;
+          font-size: 14px;
+          -webkit-text-size-adjust: none;
+          text-size-adjust: none;
+          }
+          table {
+          font-size: 14px;
+          }
+
+          td.c {
+          text-align: center;
+          }
+
+          tr:not([class]) {
+          border: 1px solid #d9d9d9;
+                }
+
+          .row-number {
+          font-size: 10px;
+          text-align: center;
+          background-color: #d9d9d9;
+                }
+    </style>
+    </HEAD>
+    <body>
+        <img src="data:image/jpg;base64,             /9j/4AAQSkZJRgABAQEAYABgAAD/4QBkRXhpZgAATU0AKgAAAAgABQESAAMAAAABAAEAAAExAAIA             AAAARAAAASlEQAAEAAAABAQAAAFERAAQAAAABAAAAAFESAAQAAAABAAAAAAAAAABBZG9iZSBJbWFn             ZVJlYWR5AAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcH             Cg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwMDAwMDAwM             DAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAAfAMUDASIAAhEBAxEB/8QA             HwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIh             MUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW             V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXG             x8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAECAwQF             BgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFFEKRobHBCSMzUv             AVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6go             OEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6On             q8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9Qv29/wBvXVvhV4ntfhr8NbRdY+ImsqqNIsYuP7LMg+RVj6PMy             /OFf5UXa7hlYA+R6N/wSH+I3x6sP7X+K/xW1SPU73962nx+ZqP2bJ3AGSSRY1xkgxxR7FP3WIxXXf8AB             N/4SL4z/aO+JPxQ15v7Q1Se6I055PmNr9oeR5cZz92NYYkIOVQOvRq6jwt/wV48Bab+0V40+G/j3b4Lv             eDs1S5sbLVZ59mnahJHkrvyAbWVh/FL+6YZx5gwa+14x4pwXDmWSx2PdoLSKSu5S6JL+rI/KeA+B8z47             4hjk+T/xHeTk3aMYL4pP0X3vRan2D+0T+2l8NP2V7SKbxz4stNDurxd1nZCGW6vLheRujghV32EggOVC             5BGRg18R/GH/AIL56DY3M1t8M/hvqHiFYziPVfFV4thbSjs4t7cvI6/7LTIeOcdK+aP+ClHx61b9pD9t             X4h3F1NJJpvh7VZfD+mRHJWGC0kMJ2jnAdw8h/3zXLeJv2G/2gP2f/CsHxGvPgv8RPDOn6KftMmtzaBd             WH2DYM+c4nRXjjQ8mR02D1r+SM+8cOOM6k8vyS2Gwy0c4/xJdL8yV4vyVn3Z/qNwZ9D/AMC+GaVDM+MJ             /wBpcQP3nSxD5cLF7qEaKfLNLZ+0lNPdQitvpD4a/8HB/wAZfDGsxz+M/h78L/H2j7yZbXRra78P3pU9             lmkkuowR2JiPTt1r9Jv2Ov8Agqr8G/23bL7H4L8S3Gl+K44vMl8K+I7UWGqR45PlAMY7gDnLQu44JIA5             r8j9M+KWg/8ABUj4+eCfAfxQ1bT/AIc+JNQ8zT4PGWk6XGbfV7kxs9vHdxqyhZJZdkKNGUjDyD5ME7T6             J+3n/wAEL/jD/wAE/dOHxE8M+Il+LXgPw8wvZ/EmgW0mna54b2nIubmx8yR0iQ4LT200wTrIqjL1+n+E             /wBKvxG4JxlPK+NsS8xwLajKNSK+s0ltenW+KaS2jUck1pFo/nj6Tf0CvAbxfyuvxF4Y4GlwxxHCOqn             h5OnlmMlHXlrYbD+7hpt6KthlCz1qUqiP2m/bk/5MS/aC/7Jx4o/9NF3X8xNfsx/wTm/4OSvCH7RngPS             /wBnv9t3wr4f8W/DzxBpMfhe38d3Uckmo2V2IvJWHxDBKzR3cL8br5HSRJMPOhzKz/K//Bdz/gkvZ/8A             BML9ofT7rwPeax4g+AfxNW5vfAWo6u63F54avIWV7rQb2dVXz5LbzY2gmChp7WSMuXlS4kP+o/CnEeW8T             5TRzrJp+0wteCqQlZx5ovunZprVSi9VJNOzTR/z3+K/hjxN4Pca47w/45w6oZvl9R0qsVJVKctFOLjUin             GcJxlGdOpC8alOUKkW4yTfyFRRRX0x8Mf/9k=">
+        <h3 align="center" style="line-height:1.0;">
+            <br>
+            Отчет брокера
+            <br>
+            за период с 01.01.2024 по 31.01.2024, дата создания 01.02.2024
+            <br>
+        </h3>
+        <p>
+             Инвестор: Иванов Иван Иванович
+            <br>Договор TEST001 от  01.01.2023</br>
+        </p>
+        <p>
+            <br>
+            Оценка активов, руб.
+            <br>
+        </p>
+        <table class="RatingAssets" border="2" cellspacing="0" cellpadding="3">
+            <tr class="table-header">
+                <td class="c" rowspan="2">Торговая площадка</td><td class="c" colspan="3">Начало периода</td><td class="c" colspan="3">Конец периода</td><td class="c" colspan="3">Изменение за период</td>
+            </tr>
+            <tr class="table-header">
+                <td class="c">Ценные бумаги</td><td class="c">Денежные средства</td><td class="c">Всего</td><td class="c">Ценные бумаги</td><td class="c">Денежные средства</td><td class="c">Всего</td><td class="c">Ценные бумаги</td><td class="c">Денежные средства</td><td class="c">Всего</td>
+            </tr>
+            <tr class="rn">
+                <td class="row-number">1</td><td class="row-number">2</td><td class="row-number">3</td><td class="row-number">4</td><td class="row-number">5</td><td class="row-number">6</td><td class="row-number">7</td><td class="row-number">8</td><td class="row-number">9</td><td class="row-number">10</td>
+            </tr>
+            <tr>
+                <td class="l">Основной рынок</td><td width="100">98 734.52</td><td width="100">1 087.63</td><td width="100">99 822.15</td><td width="100">186 245.87</td><td width="100">4 159.31</td><td width="100">190 405.18</td><td width="100">+87 511.35</td><td width="100">+3 071.68</td><td width="100">+90 583.03</td>
+            </tr>
+            <tr class="summary-row">
+                <td class="fontBold">Итого</td><td width="100" colspan="3" text-align="right">99 822.15</td><td width="100" colspan="3" text-align="right">190 405.18</td><td width="100" colspan="3" text-align="right">+90 583.03</td>
+            </tr>
+        </table>
+        <p1></p1>
+        <p>
+            <br>Сводная информация по движению денежных средств за период (основной рынок)</br>
+        </p>
+        <table border="1" cellspacing="0" cellpadding="3">
+            <tr align="center"">
+                <td class="c" class="table-header width="150">Описание</td><td class="c" width="100">Сумма</td><td class="c" width="100">Валюта</td>
+            </tr>
+            <tr class="rn">
+                <td class="row-number">1</td><td class="row-number">2</td><td class="row-number">3</td>
+            </tr>
+            <tr>
+                <td class="l" width="150">Входящий остаток</td><td class="ri" width="100">1 087.63</td><td class="c" width="100">RUB</td>
+            </tr>
+            <tr>
+                <td class="l" width="150">Пополнение счета</td><td class="ri" width="100">47 523.18</td><td class="c" width="100">RUB</td>
+            </tr>
+            <tr>
+                <td class="l" width="150">Сальдо расчетов по сделкам</td><td class="ri" width="100">-312 797.65</td><td class="c" width="100">RUB</td>
+            </tr>
+            <tr>
+                <td class="l" width="150">Корпоративные действия</td><td class="ri" width="100">268 486.77</td><td class="c" width="100">RUB</td>
+            </tr>
+            <tr>
+                <td class="l" width="150">Комиссия брокера</td><td class="ri" width="100">-117.98</td><td class="c" width="100">RUB</td>
+            </tr>
+            <tr>
+                <td class="l" width="150">Комиссия биржи</td><td class="ri" width="100">-22.64</td><td class="c" width="100">RUB</td>
+            </tr>
+            <tr>
+                <td class="l" width="150">Исходящий остаток</td><td class="ri" width="100">4 159.31</td><td class="c" width="100">RUB</td>
+            </tr>
+        </table>
+        <p style="line-height:0.7;">
+            <br>Портфель Ценных Бумаг</br>
+            <br>Торговый код: TEST001</br>
+            <br>
+        </p>
+        <table border="1" cellspacing="0" cellpadding="3">
+            <tr class="table-header">
+                <td class="c" colspan="3">Основной рынок</td><td class="c" colspan="5">Начало периода</td><td class="c" colspan="5">Конец периода</td><td class="c" colspan="2">Изменение за период</td><td class="c" colspan="3">Плановые показатели</td>
+            </tr>
+            <tr align="center" class="table-header">
+                <td class="c">Наименование</td><td class="c">ISIN ценной бумаги</td><td class="c">Валюта рыночной цены</td><td class="c">Количество, шт</td><td class="c">Номинал<span><a href="#link1" style="color:#0000ff; text-decoration:none">&sup1;</a></span></td><td class="c">Рыночная цена<span><a href="#link2" style="color:#0000ff; text-decoration:none">&sup2;</a></span></td><td class="c">Рыночная стоимость, без НКД<span><a href="#link3" style="color:#0000ff; text-decoration:none">&sup3;</a></span></td><td class="c">НКД<span><a href="#link4" style="color:#0000ff; text-decoration:none">⁴</a></span></td><td class="c">Количество, шт</td><td class="c">Номинал<span><a href="#link1" style="color:#0000ff; text-decoration:none">&sup1;</a></span></td><td class="c">Рыночная цена<span><a href="#link2" style="color:#0000ff; text-decoration:none">&sup2;</a></span></td><td class="c">Рыночная стоимость, без НКД<span><a href="#link3" style="color:#0000ff; text-decoration:none">&sup3;</a></span></td><td class="c">НКД<span><a href="#link4" style="color:#0000ff; text-decoration:none">⁴</a></span></td><td class="c">Количество, шт</td><td class="c">Рыночная стоимость</td><td class="c">Плановые зачисления по сделкам, шт</td><td class="c">Плановые списания по сделкам, шт</td><td class="c">Плановый исходящий остаток, шт</td>
+            </tr>
+            <tr class="rn">
+                <td class="row-number">1</td><td class="row-number">2</td><td class="row-number">3</td><td class="row-number">4</td><td class="row-number">5</td><td class="row-number">6</td><td class="row-number">7</td><td class="row-number">8</td><td class="row-number">9</td><td class="row-number">10</td><td class="row-number">11</td><td class="row-number">12</td><td class="row-number">13</td><td class="row-number">14</td><td class="row-number">15</td><td class="row-number">16</td><td class="row-number">17</td><td class="row-number">18</td>
+            </tr>
+            <tr>
+                <td class="l" colspan="18">Площадка: Фондовый рынок</td>
+            </tr>
+            <tr>
+                <td class="l">Облигация А</td><td class="c">RU000TEST001</td><td class="c">RUB</td><td>0</td><td>1 000</td><td>104.31</td><td>0.00</td><td>0</td><td>100</td><td>1 000</td><td>105.58</td><td>10 558.00</td><td>296.17</td><td>100</td><td>10 558.00</td><td>0</td><td>0</td><td>100</td>
+            </tr>
+            <tr>
+                <td class="l">Облигация Б</td><td class="c">RU000TEST002</td><td class="c">RUB</td><td>119</td><td>1 000</td><td>96.46</td><td>11 478.74</td><td>1 904.32</td><td>119</td><td>1 000</td><td>97.34</td><td>11 583.46</td><td>3 134.89</td><td>0</td><td>104.72</td><td>0</td><td>0</td><td>119</td>
+            </tr>
+            <tr>
+                <td class="l">Облигация В</td><td class="c">RU000TEST003</td><td class="c">RUB</td><td>138</td><td>1 000</td><td>87.52</td><td>12 077.76</td><td>2 911.46</td><td>138</td><td>1 000</td><td>87.68</td><td>12 099.84</td><td>643.72</td><td>0</td><td>22.08</td><td>0</td><td>0</td><td>138</td>
+            </tr>
+            <tr>
+                <td class="l">Облигация Г</td><td class="c">RU000TEST004</td><td class="c">RUB</td><td>114</td><td>1 000</td><td>98.17</td><td>11 191.38</td><td>2 414.83</td><td>114</td><td>1 000</td><td>99.28</td><td>11 317.92</td><td>3 048.94</td><td>0</td><td>126.54</td><td>0</td><td>0</td><td>114</td>
+            </tr>
+            <tr>
+                <td class="l">Облигация Д</td><td class="c">RU000TEST005</td><td class="c">RUB</td><td>47</td><td>1 000</td><td>93.26</td><td>4 383.22</td><td>1 635.47</td><td>47</td><td>1 000</td><td>94.37</td><td>4 435.39</td><td>2 017.31</td><td>0</td><td>52.17</td><td>0</td><td>0</td><td>47</td>
+            </tr>
+            <tr>
+                <td class="l">Облигация Е</td><td class="c">RU000TEST006</td><td class="c">RUB</td><td>118</td><td>1 000</td><td>97.09</td><td>11 456.62</td><td>1 473.82</td><td>168</td><td>1 000</td><td>97.98</td><td>16 460.64</td><td>4 132.84</td><td>50</td><td>5 004.02</td><td>0</td><td>0</td><td>168</td>
+            </tr>
+            <tr>
+                <td class="l">Облигация Ж</td><td class="c">RU000TEST007</td><td class="c">RUB</td><td>328</td><td>375</td><td>97.89</td><td>120 404.70</td><td>2 312.47</td><td>509</td><td>250</td><td>97.91</td><td>124 462.19</td><td>478.93</td><td>181</td><td>4 057.49</td><td>0</td><td>0</td><td>509</td>
+            </tr>
+            <tr class="summary-row">
+                <td class="fontBold" colspan="6">Итого по площадке Фондовый рынок, RUB</td><td>191 052.42</td><td>12 652.37</td><td></td><td></td><td></td><td>190 917.44</td><td>14 252.80</td><td></td><td>-134.98</td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td class="l" colspan="18">&nbsp;</td>
+            </tr>
+            <tr class="summary-row">
+                <td class="fontBold" colspan="6">Итого по Основному рынку, RUB</td><td>191 052.42</td><td>12 652.37</td><td></td><td></td><td></td><td>190 917.44</td><td>14 252.80</td><td></td><td>-134.98</td><td></td><td></td><td></td>
+            </tr>
+        </table>
+        <p>
+            <br>Денежные средства</br>
+        </p>
+        <table border="1" cellspacing="0" cellpadding="3">
+            <tr class="table-header">
+                <td class="c">Торговая площадка</td><td class="c">Валюта</td><td class="c">Курс на конец периода</td><td class="c">Начало периода</td><td class="c">Изменение за период</td><td class="c">Конец периода</td><td class="c">Плановые зачисления по операциям</td><td class="c">Плановые списания по операциям</td><td class="c">Плановый исходящий остаток</td>
+            </tr>
+            <tr class="rn">
+                <td class="row-number">1</td><td class="row-number">2</td><td class="row-number">3</td><td class="row-number">4</td><td class="row-number">5</td><td class="row-number">6</td><td class="row-number">7</td><td class="row-number">8</td><td class="row-number">9</td>
+            </tr>
+            <tr>
+                <td class="l">Торговый счет,  Основной рынок</td><td class="c">RUB</td><td></td><td>1 087.63</td><td>3 071.68</td><td>4 159.31</td><td>0.00</td><td>0.00</td><td>4 159.31</td>
+            </tr>
+            <tr>
+                <td class="l">Торговый счет,  Основной рынок</td><td class="c">EUR</td><td>93.4827</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td>
+            </tr>
+            <tr>
+                <td class="l">Торговый счет,  Основной рынок</td><td class="c">USD</td><td>81.3508</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td>
+            </tr>
+            <tr class="summary-row">
+                <td class="fontBold" colspan="3">Итого по площадке Основной рынок</td><td>1 087.63</td><td>3 071.68</td><td>4 159.31</td><td>0.00</td><td>0.00</td><td>4 159.31</td>
+            </tr>
+            <tr class="summary-row">
+                <td class="fontBold" colspan="3">Итого в рублевой оценке по курсам Банка России</td><td>1 087.63</td><td>3 071.68</td><td>4 159.31</td><td>0.00</td><td>0.00</td><td>4 159.31</td>
+            </tr>
+        </table>
+        <p>
+            <br>Движение денежных средств за период</br>
+        </p>
+        <table border="1" cellspacing="0" cellpadding="3">
+            <tr class="table-header">
+                <td class="c">Дата</td><td class="c">Торговая площадка</td><td class="c">Описание операции</td><td class="c">Валюта</td><td class="c">Сумма зачисления</td><td class="c">Сумма списания</td>
+            </tr>
+            <tr class="rn">
+                <td class="row-number">1</td><td class="row-number">2</td><td class="row-number">3</td><td class="row-number">4</td><td class="row-number">5</td><td class="row-number">6</td>
+            </tr>
+            <tr>
+                <td class="c">07.01.2024</td><td class="c">Основной рынок</td><td class="c">Зачисление д/с</td><td class="c">RUB</td><td>47 523.18</td><td>0.00</td>
+            </tr>
+            <tr>
+                <td class="c">09.01.2024</td><td class="c">Основной рынок</td><td class="c">Сделка от 08.01.2024</td><td class="c">RUB</td><td>0.00</td><td>148 410.60</td>
+            </tr>
+            <tr>
+                <td class="c">09.01.2024</td><td class="c">Основной рынок</td><td class="c">Комиссия Биржи от 08.01.2024</td><td class="c">RUB</td><td>0.00</td><td>18.54</td>
+            </tr>
+            <tr>
+                <td class="c">09.01.2024</td><td class="c">Основной рынок</td><td class="c">Комиссия Брокера оборотная от 08.01.2024</td><td class="c">RUB</td><td>0.00</td><td>89.05</td>
+            </tr>
+            <tr>
+                <td class="c">14.01.2024</td><td class="c">Основной рынок</td><td class="c">Зачисление д/с (купон 20 по Облигация В)</td><td class="c">RUB</td><td>3 440.34</td><td>0.00</td>
+            </tr>
+            <tr>
+                <td class="c">15.01.2024</td><td class="c">Основной рынок</td><td class="c">Сделка от 14.01.2024</td><td class="c">RUB</td><td>0.00</td><td>3 118.20</td>
+            </tr>
+            <tr>
+                <td class="c">15.01.2024</td><td class="c">Основной рынок</td><td class="c">Комиссия Биржи от 14.01.2024</td><td class="c">RUB</td><td>0.00</td><td>0.26</td>
+            </tr>
+            <tr>
+                <td class="c">15.01.2024</td><td class="c">Основной рынок</td><td class="c">Комиссия Брокера оборотная от 14.01.2024</td><td class="c">RUB</td><td>0.00</td><td>1.87</td>
+            </tr>
+            <tr>
+                <td class="c">16.01.2024</td><td class="c">Основной рынок</td><td class="c">Зачисление д/с (амортизация Облигация Ж)</td><td class="c">RUB</td><td>45 347.98</td><td>0.00</td>
+            </tr>
+            <tr>
+                <td class="c">16.01.2024</td><td class="c">Основной рынок</td><td class="c">Зачисление д/с (купон 18 по Облигация Ж)</td><td class="c">RUB</td><td>2 804.67</td><td>0.00</td>
+            </tr>
+            <tr>
+                <td class="c">20.01.2024</td><td class="c">Основной рынок</td><td class="c">Сделка от 17.01.2024</td><td class="c">RUB</td><td>0.00</td><td>974.83</td>
+            </tr>
+            <tr>
+                <td class="c">20.01.2024</td><td class="c">Основной рынок</td><td class="c">Комиссия Биржи от 17.01.2024</td><td class="c">RUB</td><td>0.00</td><td>0.09</td>
+            </tr>
+            <tr>
+                <td class="c">20.01.2024</td><td class="c">Основной рынок</td><td class="c">Комиссия Брокера оборотная от 17.01.2024</td><td class="c">RUB</td><td>0.00</td><td>0.58</td>
+            </tr>
+            <tr>
+                <td class="c">21.01.2024</td><td class="c">Основной рынок</td><td class="c">Сделка от 20.01.2024</td><td class="c">RUB</td><td>0.00</td><td>13 169.25</td>
+            </tr>
+            <tr>
+                <td class="c">21.01.2024</td><td class="c">Основной рынок</td><td class="c">Комиссия Биржи от 20.01.2024</td><td class="c">RUB</td><td>0.00</td><td>0.56</td>
+            </tr>
+            <tr>
+                <td class="c">21.01.2024</td><td class="c">Основной рынок</td><td class="c">Комиссия Брокера оборотная от 20.01.2024</td><td class="c">RUB</td><td>0.00</td><td>3.95</td>
+            </tr>
+            <tr>
+                <td class="c">23.01.2024</td><td class="c">Основной рынок</td><td class="c">Сделка от 22.01.2024</td><td class="c">RUB</td><td>0.00</td><td>146 085.00</td>
+            </tr>
+            <tr>
+                <td class="c">23.01.2024</td><td class="c">Основной рынок</td><td class="c">Комиссия Биржи от 22.01.2024</td><td class="c">RUB</td><td>0.00</td><td>3.10</td>
+            </tr>
+            <tr>
+                <td class="c">23.01.2024</td><td class="c">Основной рынок</td><td class="c">Комиссия Брокера оборотная от 22.01.2024</td><td class="c">RUB</td><td>0.00</td><td>21.91</td>
+            </tr>
+            <tr>
+                <td class="c">28.01.2024</td><td class="c">Основной рынок</td><td class="c">Зачисление д/с (купон 4 по Облигация А)</td><td class="c">RUB</td><td>1 464.87</td><td>0.00</td>
+            </tr>
+            <tr>
+                <td class="c">29.01.2024</td><td class="c">Основной рынок</td><td class="c">Сделка от 28.01.2024</td><td class="c">RUB</td><td>0.00</td><td>1 041.40</td>
+            </tr>
+            <tr>
+                <td class="c">29.01.2024</td><td class="c">Основной рынок</td><td class="c">Комиссия Биржи от 28.01.2024</td><td class="c">RUB</td><td>0.00</td><td>0.09</td>
+            </tr>
+            <tr>
+                <td class="c">29.01.2024</td><td class="c">Основной рынок</td><td class="c">Комиссия Брокера оборотная от 28.01.2024</td><td class="c">RUB</td><td>0.00</td><td>0.62</td>
+            </tr>
+            <tr class="summary-row">
+                <td class="fontBold" colspan="4">Итого, RUB</td><td>368 871.04</td><td>313 039.43</td>
+            </tr>
+        </table>
+        <p>
+            <br>Сделки купли/продажи ценных бумаг</br>
+        </p>
+        <table border="1" cellspacing="0" cellpadding="3">
+            <tr class="table-header">
+                <td class="c">Дата заключения</td><td class="c">Дата расчетов</td><td class="c">Время заключения</td><td class="c">Наименование ЦБ</td><td class="c">Код ЦБ</td><td class="c">Валюта</td><td class="c">Вид</td><td class="c">Количество, шт.</td><td class="c">Цена<span><a href="#link2" style="color:#0000ff; text-decoration:none">&sup2;</a></span></td><td class="c">Сумма</td><td class="c">НКД<span><a href="#link4" style="color:#0000ff; text-decoration:none">⁴</a></span></td><td class="c">Комиссия Брокера</td><td class="c">Комиссия Биржи</td><td class="c">Номер сделки</td><td class="c">Комментарий</td><td class="c">Статус сделки<span><a href="#link5" style="color:#0000ff; text-decoration:none">⁵</a></span></td>
+            </tr>
+            <tr class="rn">
+                <td class="row-number">1</td><td class="row-number">2</td><td class="row-number">3</td><td class="row-number">4</td><td class="row-number">5</td><td class="row-number">6</td><td class="row-number">7</td><td class="row-number">8</td><td class="row-number">9</td><td class="row-number">10</td><td class="row-number">11</td><td class="row-number">12</td><td class="row-number">13</td><td class="row-number">14</td><td class="row-number">15</td><td class="row-number">16</td>
+            </tr>
+            <tr>
+                <td class="l" colspan="16">Площадка: Фондовый рынок</td>
+            </tr>
+            <tr>
+                <td class="c">08.01.2024</td><td class="c">09.01.2024</td><td class="c">11:03:38</td><td class="c">Облигация Е</td><td class="c">RU000TEST006</td><td class="c">RUB</td><td class="c">Покупка</td><td>50</td><td>96.93</td><td>48 465.00</td><td>800.17</td><td>29.08</td><td>6.05</td><td class="c">10000000001</td><td class="c"></td><td>И</td>
+            </tr>
+            <tr>
+                <td class="c">08.01.2024</td><td class="c">09.01.2024</td><td class="c">11:35:14</td><td class="c">Облигация А</td><td class="c">RU000TEST001</td><td class="c">RUB</td><td class="c">Покупка</td><td>96</td><td>104.11</td><td>99 945.60</td><td>662.83</td><td>59.97</td><td>12.49</td><td class="c">10000000002</td><td class="c"></td><td>И</td>
+            </tr>
+            <tr>
+                <td class="c">14.01.2024</td><td class="c">15.01.2024</td><td class="c">14:26:18</td><td class="c">Облигация А</td><td class="c">RU000TEST001</td><td class="c">RUB</td><td class="c">Покупка</td><td>3</td><td>103.94</td><td>3 118.20</td><td>29.73</td><td>1.87</td><td>0.26</td><td class="c">10000000003</td><td class="c"></td><td>И</td>
+            </tr>
+            <tr>
+                <td class="c">17.01.2024</td><td class="c">20.01.2024</td><td class="c">10:07:03</td><td class="c">Облигация Ж</td><td class="c">RU000TEST007</td><td class="c">RUB</td><td class="c">Покупка</td><td>1</td><td>97.32</td><td>243.30</td><td>0.25</td><td>0.15</td><td>0.02</td><td class="c">10000000004</td><td class="c"></td><td>И</td>
+            </tr>
+            <tr>
+                <td class="c">17.01.2024</td><td class="c">20.01.2024</td><td class="c">10:12:42</td><td class="c">Облигация Ж</td><td class="c">RU000TEST007</td><td class="c">RUB</td><td class="c">Покупка</td><td>3</td><td>97.32</td><td>729.90</td><td>0.75</td><td>0.44</td><td>0.07</td><td class="c">10000000005</td><td class="c"></td><td>И</td>
+            </tr>
+            <tr>
+                <td class="c">20.01.2024</td><td class="c">21.01.2024</td><td class="c">10:50:26</td><td class="c">Облигация Ж</td><td class="c">RU000TEST007</td><td class="c">RUB</td><td class="c">Покупка</td><td>17</td><td>97.55</td><td>8 291.75</td><td>5.27</td><td>4.97</td><td>0.70</td><td class="c">10000000006</td><td class="c"></td><td>И</td>
+            </tr>
+            <tr>
+                <td class="c">20.01.2024</td><td class="c">21.01.2024</td><td class="c">10:51:12</td><td class="c">Облигация Ж</td><td class="c">RU000TEST007</td><td class="c">RUB</td><td class="c">Покупка</td><td>10</td><td>97.55</td><td>4 877.50</td><td>3.10</td><td>2.93</td><td>0.41</td><td class="c">10000000007</td><td class="c"></td><td>И</td>
+            </tr>
+            <tr>
+                <td class="c">22.01.2024</td><td class="c">23.01.2024</td><td class="c">10:06:11</td><td class="c">Облигация Ж</td><td class="c">RU000TEST007</td><td class="c">RUB</td><td class="c">Покупка</td><td>95</td><td>97.39</td><td>92 520.50</td><td>41.80</td><td>55.51</td><td>7.93</td><td class="c">10000000008</td><td class="c"></td><td>И</td>
+            </tr>
+            <tr>
+                <td class="c">22.01.2024</td><td class="c">23.01.2024</td><td class="c">10:09:19</td><td class="c">Облигация Ж</td><td class="c">RU000TEST007</td><td class="c">RUB</td><td class="c">Покупка</td><td>55</td><td>97.39</td><td>53 564.50</td><td>24.20</td><td>32.14</td><td>4.59</td><td class="c">10000000009</td><td class="c"></td><td>И</td>
+            </tr>
+            <tr>
+                <td class="c">28.01.2024</td><td class="c">29.01.2024</td><td class="c">14:30:22</td><td class="c">Облигация А</td><td class="c">RU000TEST001</td><td class="c">RUB</td><td class="c">Покупка</td><td>1</td><td>104.14</td><td>1 041.40</td><td>1.97</td><td>0.62</td><td>0.09</td><td class="c">10000000010</td><td class="c"></td><td>И</td>
+            </tr>
+            <tr class="summary-row">
+                <td class="fontBold" colspan="9">Итого, RUB</td><td>312 797.65</td><td>1 570.07</td><td>182.08</td><td>36.50</td><td class="l" colspan="3"></td>
+            </tr>
+        </table>
+        <p>
+            <br>РАСЧЕТ И УДЕРЖАНИЕ НАЛОГА НА 31.01.2024 (за текущий налоговый период) </br>
+        </p>
+        <p>
+            <br>I. ДОХОДЫ И РАСХОДЫ на 31.01.2024 (без переноса убытка)</br>
+        </p>
+        <table border="1" cellspacing="0" cellpadding="3">
+            <tr class="table-header">
+                <td class="c">Код договора</td><td class="c">Код дохода</td><td class="c">Сумма дохода, руб.</td><td class="c">Облагаемая сумма дохода или сумма убытка (указывается со знаком минус), руб.</td><td class="c">Код расхода или убытка</td><td class="c">Сумма документально подтвержденных расходов, руб.</td><td class="c">Сумма стандартных налоговых вычетов, руб.</td>
+            </tr>
+            <tr class="rn">
+                <td class="row-number">1</td><td class="row-number">2</td><td class="row-number">3</td><td class="row-number">4</td><td class="row-number">5</td><td class="row-number">6</td><td class="row-number">7</td>
+            </tr>
+            <tr>
+                <td class="l">TEST002</td><td class="c">1530</td><td>12 453.87</td><td>3 891.52</td><td class="c">201</td><td>8 562.35</td><td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="l">TEST001</td><td class="c">1530</td><td>18 732.64</td><td>3 428.17</td><td class="c">201</td><td>15 304.47</td><td>&nbsp;</td>
+            </tr>
+        </table>
+        <p>
+            <br>II. ДОХОДЫ И РАСХОДЫ на 31.01.2024 (консолидированные данные с переносом убытков)</br>
+        </p>
+        <table border="1" cellspacing="0" cellpadding="3">
+            <tr class="table-header">
+                <td class="c">Наименование клиента</td><td class="c">Код дохода</td><td class="c">Сумма дохода, руб.</td><td class="c">Облагаемая сумма дохода или сумма убытка (указывается со знаком минус), руб.</td><td class="c">Код расхода или убытка</td><td class="c">Сумма документально подтвержденных расходов, руб.</td><td class="c">Сумма стандартных налоговых вычетов, руб.</td><td class="c">Сумма УНКД, уменьшающая, доход по коду 1011, руб.</td><td class="c">Сумма убытка по ЦБ, перенесенная на доход по коду 1011, руб.</td>
+            </tr>
+            <tr class="rn">
+                <td class="row-number">1</td><td class="row-number">2</td><td class="row-number">3</td><td class="row-number">4</td><td class="row-number">5</td><td class="row-number">6</td><td class="row-number">7</td><td class="row-number">8</td><td class="row-number">9</td>
+            </tr>
+            <tr>
+                <td class="l">Иванов&nbsp;И.И.</td><td class="c">1530</td><td>31 186.51</td><td>7 319.69</td><td class="c">201</td><td>23 866.82</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+            </tr>
+        </table>
+        <p>
+            <br>III. ИТОГОВЫЙ ФИНАНСОВЫЙ РЕЗУЛЬТАТ на 31.01.2024 </br>
+        </p>
+        <table border="1" cellspacing="0" cellpadding="3">
+            <tr class="table-header">
+                <td class="c">Сумма дохода, руб.</td><td class="c">Облагаемая сумма дохода, руб.</td><td class="c">Сумма налога исчисленная, руб.</td><td class="c">Сумма налога удержанная, руб.</td><td class="c">Сумма налога к удержанию или сумма излишне удержанного налога (указывается со знаком минус), руб.<span><a href="#link9" style="color:#0000ff; text-decoration:none">⁹</a></span></td><td class="c">Сумма документально подтвержденных расходов, руб.</td><td class="c">Сумма стандартных налоговых вычетов, руб.</td><td class="c">Сумма убытка, со знаком минус, руб.</td>
+            </tr>
+            <tr class="rn">
+                <td class="row-number">1</td><td class="row-number">2</td><td class="row-number">3</td><td class="row-number">4</td><td class="row-number">5</td><td class="row-number">6</td><td class="row-number">7</td><td class="row-number">8</td>
+            </tr>
+            <tr>
+                <td>31 186.51</td><td></td><td></td><td></td><td></td><td>23 866.82</td><td>0.00</td><td>0.00</td>
+            </tr>
+            <tr>
+                <td class="fontBold" colspan="8">Ставка 13%</td>
+            </tr>
+            <tr>
+                <td></td><td>7 319.69</td><td>951.56</td><td>&nbsp;</td><td>951.56</td><td></td><td></td><td></td>
+            </tr>
+        </table>
+        <p>
+            <br>Справочник Ценных Бумаг</br>
+        </p>
+        <table border="1" cellspacing="0" cellpadding="3">
+            <tr class="table-header">
+                <td class="c">Наименование</td><td class="c">Код</td><td class="c">ISIN ценной бумаги</td><td class="c">Эмитент</td><td class="c">Вид, Категория, Тип, иная информация</td><td class="c">Выпуск, Транш, Серия</td>
+            </tr>
+            <tr class="rn">
+                <td class="row-number">1</td><td class="row-number">2</td><td class="row-number">3</td><td class="row-number">4</td><td class="row-number">5</td><td class="row-number">6</td>
+            </tr>
+            <tr>
+                <td class="l">Облигация А</td><td class="c">RU000TEST001</td><td class="c">RU000TEST001</td><td class="c">Эмитент А</td><td class="c">Облигация</td><td class="c">Выпуск А </td>
+            </tr>
+            <tr>
+                <td class="l">Облигация Б</td><td class="c">RU000TEST002</td><td class="c">RU000TEST002</td><td class="c">Эмитент Б</td><td class="c">Облигация</td><td class="c">Выпуск Б </td>
+            </tr>
+            <tr>
+                <td class="l">Облигация В</td><td class="c">RU000TEST003</td><td class="c">RU000TEST003</td><td class="c">Эмитент В</td><td class="c">Облигация</td><td class="c">Выпуск В </td>
+            </tr>
+            <tr>
+                <td class="l">Облигация Г</td><td class="c">RU000TEST004</td><td class="c">RU000TEST004</td><td class="c">Эмитент Г</td><td class="c">Облигация</td><td class="c">Выпуск Г </td>
+            </tr>
+            <tr>
+                <td class="l">Облигация Д</td><td class="c">RU000TEST005</td><td class="c">RU000TEST005</td><td class="c">Эмитент Д</td><td class="c">Облигация</td><td class="c">Выпуск Д </td>
+            </tr>
+            <tr>
+                <td class="l">Облигация Е</td><td class="c">RU000TEST006</td><td class="c">RU000TEST006</td><td class="c">Эмитент Е</td><td class="c">Облигация</td><td class="c">Выпуск Е </td>
+            </tr>
+            <tr>
+                <td class="l">Облигация Ж</td><td class="c">RU000TEST007</td><td class="c">RU000TEST007</td><td class="c">Эмитент Ж</td><td class="c">Облигация</td><td class="c">Выпуск Ж </td>
+            </tr>
+        </table>
+        <br>
+            <table border="0" cellspacing="0" cellpadding="3">
+                <tr class="sign">
+                    <td class="l">Подпись Руководителя (уполномоченного лица)</td><td class="c" width="360pt"></td>
+                </tr>
+                <tr class="sign">
+                    <td class="l">М.П.</td><td class="c" width="360pt"></td>
+                </tr>
+            </table>
+        </br>
+        <p></p>
+        <i><span id="link1">&sup1;</span> Номинал указывается для облигаций с учетом амортизации.
+            <br>
+            <span id="link2">&sup2;</span> Цена указывается для акций, депозитарных расписок, паев &ndash; в валюте инструмента в ТС, для облигаций &ndash; в % от номинала, для срочных контрактов &ndash; в соответствии со спецификацией срочного контракта. Сведения о ценах и
+            <br>
+                      &nbsp;  характеристиках ценных бумаг носят информационный характер и не предназначены для целей ведения бухгалтерского учета. По некоторым видам ценных бумаг (структурированные ноты, необращающиеся ценные бумаги, ценные бумаги
+            <br>
+                      &nbsp;   со специальными (ограниченными) условиями обращения) при отсутствии цены указывается стоимость приобретения ценных бумаг, которая включает затраты на приобретение ценных бумаг.
+            <br>
+            <span id="link3">&sup3;</span> По некоторым видам ценных бумаг (структурированные ноты, необращающиеся ценные бумаги, ценные бумаги со специальными (ограниченными) условиями обращения)  указывается стоимость приобретения ценных бумаг (включая НКД).
+            <br>
+            <span id="link4">⁴</span> Информация о накопленном купонном доходе (НКД) носит информационный характер и соответствует информации торговых систем (в исключительных случаях может рассчитываться брокером самостоятельно).
+            <br>
+            <span id="link5">⁵</span> З - сделка заключена в течение периода;
+            <br>
+                      &nbsp;  О - на конец периода ни одно обязательство по сделке не исполнено;
+            <br>
+                      &nbsp;  И - на конец периода сделка исполнена в полном объеме;
+            <br>
+                      &nbsp;  Д - донорская сделка, заключенная НКО НКЦ(АО);
+            <br>
+                      &nbsp;  ИЦБ (для внебиржевых сделок купли-продажи) - на конец периода исполнены обязательства/требования по ценным бумагам, если дата поставки ЦБ наступает ранее даты оплаты;
+            <br>
+                      &nbsp;  ИДС (для внебиржевых сделок купли-продажи) - на конец периода исполнены обязательства/требования  по денежным средствам, если дата оплаты наступает ранее даты поставки ЦБ;
+            <br>
+                      &nbsp;  И1 - на конец периода исполнены обязательства по 1-й части;
+            <br>
+                      &nbsp;  П - на конец периода сделка подлежит урегулированию;
+            <br>
+                      &nbsp;  У - на конец периода сделка урегулирована.
+            <br>
+            <span id="link6">⁶</span> Применяемая налоговая ставка обусловлена включением в налогооблагаемую базу всех видов доходов (доходы по брокерскому обслуживанию, по депозитарной деятельности), полученных физическим лицом
+            <br>
+                      &nbsp;  (налоговым резидентом РФ) от ПАО Сбербанк в налоговом периоде (год). Напоминаем, что в случае, если совокупный доход превышает 2,4 млн руб. в год, применяется повышенная ставка 15% к сумме превышения.
+            <br>
+            <span id="link8">⁸</span> Купонный доход, полученный от эмитента.
+            <br>
+            <span id="link9">⁹</span> Заявление на возврат излишне удержанного налога может быть подано удаленно через мобильное приложение "СберБанк Онлайн" по ссылке <span><a href="https://www.sberbank.com/sms/createStatement" style="color:#0000ff; text-decoration:none">https://www.sberbank.com/sms/createStatement</a></span><span>.</span>
+            <br>
+            <br>
+        </i>
+    </body>
+</html>
