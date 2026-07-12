@@ -12,6 +12,9 @@ wheels/
 # PII - Real Sberbank brokerage reports (42001JT_*.html contains investor name)
 42001JT_*.html
 
+# Local-only conformance tests (read real PII report, never commit)
+tests/local/
+
 # Jupyter notebooks
 Untitled.ipynb
 .ipynb_checkpoints/

@@ -122,6 +122,7 @@ def test_iter_data_rows_skips_special_rows() -> None:
     """
     soup = BeautifulSoup(html, 'lxml')
     table = soup.find('table')
+    assert table is not None
 
     # iter_data_rows should only yield data rows
     data_rows = list(iter_data_rows(table))

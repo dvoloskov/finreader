@@ -26,7 +26,7 @@ CONVENTIONS for all table parsers:
    - iter_section_rows(): Iterate over section rows (e.g., "Площадка: Фондовый рынок")
    - parse_money(): Parse monetary values, strips spaces, U+00A0, and leading +
    - parse_int(): Parse integer values, strips whitespace and nbsp
-   - parse_date(): Parse dates in DD.MM.YYYY format (dayfirst=True)
+   - parse_date(): Parse dates in DD.MM.YYYY format
    - parse_time(): Parse times in HH:MM:SS format
    - cell_text(): Extract and normalize cell text (strips whitespace, normalizes &nbsp;)
 
@@ -40,6 +40,60 @@ from decimal import Decimal
 from pathlib import Path
 
 from bs4 import BeautifulSoup, Tag
+
+
+def row_classes(tag: Tag) -> list[str]:
+    """
+    Return the 'class' attribute of *tag* as a list of strings.
+
+    BeautifulSoup types ``class`` as ``str | list[str] | None`` because HTML
+    allows either form; in real Sberbank reports it is always multi-valued.
+    This helper centralises the narrowing so every table parser gets a
+    plain ``list[str]`` to iterate or test membership against.
+
+    Args:
+        tag: BeautifulSoup Tag (e.g. a ``<tr>`` or ``<td>``).
+
+    Returns:
+        List of class names; empty list if the attribute is absent.
+
+    """
+    value = tag.get('class')
+    if value is None:
+        return []
+    if isinstance(value, str):
+        return [value]
+    return list(value)
+
+
+def int_attr(tag: Tag, name: str, default: int = 0) -> int:
+    """
+    Return integer value of a tag attribute, or *default* if missing.
+
+    BeautifulSoup types attribute values as ``str | list[str] | None``.
+    ``colspan``/``rowspan`` are always single numeric strings in practice;
+    this helper performs the narrowing and parsing in one place.
+
+    Args:
+        tag: BeautifulSoup Tag.
+        name: Attribute name (e.g. ``'colspan'``).
+        default: Value to return when the attribute is absent or malformed.
+
+    Returns:
+        Parsed integer, or *default*.
+
+    """
+    value = tag.get(name)
+    if value is None:
+        return default
+    if isinstance(value, list):
+        if not value:
+            return default
+        value = value[0]
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return default
 
 
 def parse_soup(path: str | Path) -> BeautifulSoup:
@@ -106,26 +160,24 @@ def iter_data_rows(table: Tag) -> list[list[str]]:
         List of data rows, where each row is a list of cell text values.
 
     """
-    data_rows = []
+    data_rows: list[list[str]] = []
     for row in table.find_all('tr'):
-        # Skip row-number rows
-        if row.get('class') and any(cls.startswith('rn') for cls in row.get('class')):
+        if has_table_header(row):
             continue
 
-        # Skip summary rows
-        if row.get('class') and any(
-            cls in ('summary-row', 'summary-row2') for cls in row.get('class')
-        ):
+        classes = row_classes(row)
+        if any(cls.startswith('rn') for cls in classes):
+            continue
+
+        if any(cls in ('summary-row', 'summary-row2') for cls in classes):
             continue
 
         # Check for section rows (first cell has colspan > 1)
         first_cell = row.find('td')
-        if first_cell and first_cell.get('colspan'):
-            colspan = int(first_cell.get('colspan'))
-            if colspan > 1:
-                cell_text_val = cell_text(first_cell)
-                if cell_text_val.startswith(('Площадка:', 'Ставка', 'Итого')):
-                    continue
+        if first_cell and int_attr(first_cell, 'colspan', 1) > 1:
+            cell_text_val = cell_text(first_cell)
+            if cell_text_val.startswith(('Площадка:', 'Ставка', 'Итого')):
+                continue
 
         # Extract cell text for data rows
         cells = [cell_text(cell) for cell in row.find_all(['td', 'th'])]
@@ -149,15 +201,13 @@ def iter_section_rows(table: Tag) -> list[str]:
         List of section row text values.
 
     """
-    section_rows = []
+    section_rows: list[str] = []
     for row in table.find_all('tr'):
         first_cell = row.find('td')
-        if first_cell and first_cell.get('colspan'):
-            colspan = int(first_cell.get('colspan'))
-            if colspan > 1:
-                cell_text_val = cell_text(first_cell)
-                if cell_text_val.startswith(('Площадка:', 'Ставка')):
-                    section_rows.append(cell_text_val)
+        if first_cell and int_attr(first_cell, 'colspan', 1) > 1:
+            cell_text_val = cell_text(first_cell)
+            if cell_text_val.startswith(('Площадка:', 'Ставка')):
+                section_rows.append(cell_text_val)
 
     return section_rows
 
@@ -221,13 +271,12 @@ def parse_int(text: str | None) -> int | None:
     return int(cleaned)
 
 
-def parse_date(text: str | None, *, dayfirst: bool = True) -> date | None:
+def parse_date(text: str | None) -> date | None:
     """
     Parse date in DD.MM.YYYY format.
 
     Args:
         text: String to parse or None.
-        dayfirst: If True, parse as DD.MM.YYYY (default True).
 
     Returns:
         Date object or None.
@@ -277,3 +326,31 @@ def cell_text(tag: Tag | None) -> str:
     # Get text and normalize nbsp to space
     text = tag.get_text(separator=' ', strip=True)
     return text.replace('\xa0', ' ')
+
+
+def has_table_header(row: Tag) -> bool:
+    """
+    Check if a row is a table header row.
+
+    A row is a header row if:
+    - The row has the 'table-header' class, OR
+    - Any cell in the row has the 'table-header' class, OR
+    - The row has align="center"
+
+    Args:
+        row: BeautifulSoup Tag representing a table row.
+
+    Returns:
+        True if the row is a header row, False otherwise.
+
+    """
+    if 'table-header' in row_classes(row):
+        return True
+
+    if row.get('align') == 'center':
+        return True
+
+    for cell in row.find_all(['td', 'th']):
+        if any('table-header' in cls for cls in row_classes(cell)):
+            return True
+    return False
