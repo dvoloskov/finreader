@@ -1,0 +1,13 @@
+repos:
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  # Ruff version.
+  rev: v0.12.11
+  hooks:
+    # Run the linter.
+    - id: ruff-format
+- repo: local
+  hooks:
+    - id: pii-gate
+      name: PII leak gate
+      entry: 'bash -c ''for f in $(git diff --cached --name-only); do [[ "$f" =~ 42001JT_.*\.html$ ]] && echo "ERROR: Attempting to commit PII report: $f" && exit 1; done; exit 0'''
+      language: system

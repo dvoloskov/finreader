@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.13"
 dependencies = [
-    "pandas>=3.0.1",
     "beautifulsoup4>=4.12.0",
     "lxml>=6.0.2",
 ]
@@ -25,14 +24,19 @@ ignore = [
 quote-style = 'single'
 
 [tool.setuptools.package-data]
-'georead' = ["py.typed"]
+'finreader' = ["py.typed"]
+
+[tool.setuptools.packages.find]
+where = ["."]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
 
 [dependency-groups]
 dev = [
+    "pytest>=9.0.2",
     "ipdb>=0.13.13",
-    "pandas-stubs>=3.0.0.260204",
     "ruff>=0.15.4",
+    "basedpyright",
+    "jupyterlab>=4.5.6",
 ]
