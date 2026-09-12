@@ -5,6 +5,8 @@ This module defines dataclasses for security reference data and provides
 the parser function.
 """
 
+from .._validation import validate_table
+
 from dataclasses import dataclass
 
 from bs4 import BeautifulSoup
@@ -45,6 +47,8 @@ def parse_securities(soup: BeautifulSoup) -> Securities | None:
     table = find_table_by_title(soup, 'Справочник Ценных Бумаг')
     if table is None:
         return None
+
+    validate_table(table, 'Справочник Ценных Бумаг')
 
     rows: list[Security] = []
     for row_text_list in iter_data_rows(table):

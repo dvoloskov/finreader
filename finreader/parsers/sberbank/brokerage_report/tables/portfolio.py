@@ -20,6 +20,8 @@ Interleaved special rows (handled by a single ordered pass over <tr>):
   - Spacer row   ``<td colspan="18">&nbsp;</td>``  → explicitly skipped.
 """
 
+from .._validation import validate_table
+
 from dataclasses import dataclass
 from decimal import Decimal
 
@@ -188,6 +190,8 @@ def parse_portfolio(soup: BeautifulSoup) -> Portfolio | None:
     table = find_table_by_title(soup, _TITLE_PREFIX)
     if table is None:
         return None
+
+    validate_table(table, 'Портфель Ценных Бумаг')
 
     rows: list[PortfolioRow] = []
     totals: list[PortfolioTotal] = []

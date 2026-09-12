@@ -1,5 +1,7 @@
 """Parse the 'Движение денежных средств за период' (cash flow) table."""
 
+from .._validation import validate_table
+
 from dataclasses import dataclass
 from decimal import Decimal
 from datetime import date
@@ -61,6 +63,8 @@ def parse_cash_flow(soup: BeautifulSoup) -> CashFlow | None:
     table = find_table_by_title(soup, 'Движение денежных средств за период')
     if table is None:
         return None
+
+    validate_table(table, 'Движение денежных средств за период')
 
     rows: list[CashFlowRow] = []
     total: CashFlowTotal | None = None

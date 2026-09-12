@@ -1,7 +1,7 @@
 [project]
 name = "finreader"
 version = "0.1.0"
-description = "Add your description here"
+description = "Strict brokerage report parsing and reconciled GnuCash export"
 requires-python = ">=3.13"
 dependencies = [
     "beautifulsoup4>=4.12.0",
@@ -28,6 +28,7 @@ quote-style = 'single'
 
 [tool.setuptools.packages.find]
 where = ["."]
+include = ["finreader*"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]

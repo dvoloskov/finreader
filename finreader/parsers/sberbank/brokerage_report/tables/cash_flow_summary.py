@@ -1,5 +1,7 @@
 """Cash flow summary table parsing."""
 
+from .._validation import validate_table
+
 from dataclasses import dataclass
 from decimal import Decimal
 from typing import TYPE_CHECKING
@@ -46,6 +48,8 @@ def parse_cash_flow_summary(soup: 'BeautifulSoup') -> CashFlowSummary | None:
 
     if table is None:
         return None
+
+    validate_table(table, 'Сводная информация по движению денежных средств за период')
 
     rows: list[CashFlowSummaryRow] = []
 

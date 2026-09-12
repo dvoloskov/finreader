@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gnc-v2
+     xmlns:gnc="http://www.gnucash.org/XML/gnc"
+     xmlns:act="http://www.gnucash.org/XML/act"
+     xmlns:book="http://www.gnucash.org/XML/book"
+     xmlns:cd="http://www.gnucash.org/XML/cd"
+     xmlns:cmdty="http://www.gnucash.org/XML/cmdty"
+     xmlns:price="http://www.gnucash.org/XML/price"
+     xmlns:slot="http://www.gnucash.org/XML/slot"
+     xmlns:split="http://www.gnucash.org/XML/split"
+     xmlns:sx="http://www.gnucash.org/XML/sx"
+     xmlns:trn="http://www.gnucash.org/XML/trn"
+     xmlns:ts="http://www.gnucash.org/XML/ts"
+     xmlns:fs="http://www.gnucash.org/XML/fs"
+     xmlns:bgt="http://www.gnucash.org/XML/bgt"
+     xmlns:recurrence="http://www.gnucash.org/XML/recurrence"
+     xmlns:lot="http://www.gnucash.org/XML/lot"
+     xmlns:addr="http://www.gnucash.org/XML/addr"
+     xmlns:billterm="http://www.gnucash.org/XML/billterm"
+     xmlns:bt-days="http://www.gnucash.org/XML/bt-days"
+     xmlns:bt-prox="http://www.gnucash.org/XML/bt-prox"
+     xmlns:cust="http://www.gnucash.org/XML/cust"
+     xmlns:employee="http://www.gnucash.org/XML/employee"
+     xmlns:entry="http://www.gnucash.org/XML/entry"
+     xmlns:invoice="http://www.gnucash.org/XML/invoice"
+     xmlns:job="http://www.gnucash.org/XML/job"
+     xmlns:order="http://www.gnucash.org/XML/order"
+     xmlns:owner="http://www.gnucash.org/XML/owner"
+     xmlns:taxtable="http://www.gnucash.org/XML/taxtable"
+     xmlns:tte="http://www.gnucash.org/XML/tte"
+     xmlns:vendor="http://www.gnucash.org/XML/vendor">
+<gnc:count-data cd:type="book">1</gnc:count-data>
+<gnc:book version="2.0.0">
+<book:id type="guid">6fcc62a0ffea45ad654bc95f1fcd4b94</book:id>
+<book:slots>
+  <slot>
+    <slot:key>remove-color-not-set-slots</slot:key>
+    <slot:value type="string">true</slot:value>
+  </slot>
+</book:slots>
+<gnc:count-data cd:type="commodity">2</gnc:count-data>
+<gnc:count-data cd:type="account">12</gnc:count-data>
+<gnc:count-data cd:type="transaction">9</gnc:count-data>
+<gnc:count-data cd:type="price">1</gnc:count-data>
+<gnc:commodity version="2.0.0">
+  <cmdty:space>CURRENCY</cmdty:space>
+  <cmdty:id>RUB</cmdty:id>
+  <cmdty:get_quotes/>
+  <cmdty:quote_source>currency</cmdty:quote_source>
+  <cmdty:quote_tz/>
+</gnc:commodity>
+<gnc:commodity version="2.0.0">
+  <cmdty:space>MICEX</cmdty:space>
+  <cmdty:id>RU000TEST001</cmdty:id>
+  <cmdty:name>Synthetic bond</cmdty:name>
+  <cmdty:xcode>RU000TEST001</cmdty:xcode>
+  <cmdty:fraction>10000</cmdty:fraction>
+</gnc:commodity>
+<gnc:commodity version="2.0.0">
+  <cmdty:space>template</cmdty:space>
+  <cmdty:id>template</cmdty:id>
+  <cmdty:name>template</cmdty:name>
+  <cmdty:xcode>template</cmdty:xcode>
+  <cmdty:fraction>1</cmdty:fraction>
+</gnc:commodity>
+<gnc:pricedb version="1">
+  <price>
+    <price:id type="guid">a35a61b8500345cbb0d05a8303c57bd2</price:id>
+    <price:commodity>
+      <cmdty:space>MICEX</cmdty:space>
+      <cmdty:id>RU000TEST001</cmdty:id>
+    </price:commodity>
+    <price:currency>
+      <cmdty:space>CURRENCY</cmdty:space>
+      <cmdty:id>RUB</cmdty:id>
+    </price:currency>
+    <price:time>
+      <ts:date>2024-01-09 10:59:00 +0000</ts:date>
+    </price:time>
+    <price:source>user:split-import</price:source>
+    <price:type>transaction</price:type>
+    <price:value>1000000000/1000000</price:value>
+  </price>
+</gnc:pricedb>
+<gnc:account version="2.0.0">
+  <act:name>Root Account</act:name>
+  <act:id type="guid">de18bd682c444c5d06079e09c59cf521</act:id>
+  <act:type>ROOT</act:type>
+</gnc:account>
+<gnc:account version="2.0.0">
+  <act:name>Assets</act:name>
+  <act:id type="guid">97fc2b4ea64783a704f6059095ce8879</act:id>
+  <act:type>ASSET</act:type>
+  <act:commodity>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </act:commodity>
+  <act:commodity-scu>100</act:commodity-scu>
+  <act:parent type="guid">de18bd682c444c5d06079e09c59cf521</act:parent>
+</gnc:account>
+<gnc:account version="2.0.0">
+  <act:name>Broker</act:name>
+  <act:id type="guid">95818f632848507f0b82b1ce484fdb34</act:id>
+  <act:type>ASSET</act:type>
+  <act:commodity>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </act:commodity>
+  <act:commodity-scu>100</act:commodity-scu>
+  <act:parent type="guid">97fc2b4ea64783a704f6059095ce8879</act:parent>
+</gnc:account>
+<gnc:account version="2.0.0">
+  <act:name>Рубли</act:name>
+  <act:id type="guid">5d36e9e6ecc02d1edef9c543728f067e</act:id>
+  <act:type>ASSET</act:type>
+  <act:commodity>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </act:commodity>
+  <act:commodity-scu>100</act:commodity-scu>
+  <act:parent type="guid">95818f632848507f0b82b1ce484fdb34</act:parent>
+</gnc:account>
+<gnc:account version="2.0.0">
+  <act:name>Облигация А</act:name>
+  <act:id type="guid">1fbef7e2781c15d1639b6b0ab19082c1</act:id>
+  <act:type>STOCK</act:type>
+  <act:commodity>
+    <cmdty:space>MICEX</cmdty:space>
+    <cmdty:id>RU000TEST001</cmdty:id>
+  </act:commodity>
+  <act:commodity-scu>10000</act:commodity-scu>
+  <act:parent type="guid">95818f632848507f0b82b1ce484fdb34</act:parent>
+</gnc:account>
+<gnc:account version="2.0.0">
+  <act:name>НКД</act:name>
+  <act:id type="guid">de23efc5aad96fd85426d17f558cd725</act:id>
+  <act:type>ASSET</act:type>
+  <act:commodity>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </act:commodity>
+  <act:commodity-scu>100</act:commodity-scu>
+  <act:parent type="guid">1fbef7e2781c15d1639b6b0ab19082c1</act:parent>
+</gnc:account>
+<gnc:account version="2.0.0">
+  <act:name>Bank</act:name>
+  <act:id type="guid">d9c2b98d1382dfb267db1fe4cf612432</act:id>
+  <act:type>BANK</act:type>
+  <act:commodity>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </act:commodity>
+  <act:commodity-scu>100</act:commodity-scu>
+  <act:parent type="guid">97fc2b4ea64783a704f6059095ce8879</act:parent>
+</gnc:account>
+<gnc:account version="2.0.0">
+  <act:name>Expenses</act:name>
+  <act:id type="guid">6ec9a32a3f9bfe0b8c8624f76c7333df</act:id>
+  <act:type>EXPENSE</act:type>
+  <act:commodity>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </act:commodity>
+  <act:commodity-scu>100</act:commodity-scu>
+  <act:parent type="guid">de18bd682c444c5d06079e09c59cf521</act:parent>
+</gnc:account>
+<gnc:account version="2.0.0">
+  <act:name>Broker</act:name>
+  <act:id type="guid">fcf1d91946bf018ffc2367a95733336a</act:id>
+  <act:type>EXPENSE</act:type>
+  <act:commodity>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </act:commodity>
+  <act:commodity-scu>100</act:commodity-scu>
+  <act:parent type="guid">6ec9a32a3f9bfe0b8c8624f76c7333df</act:parent>
+</gnc:account>
+<gnc:account version="2.0.0">
+  <act:name>Income</act:name>
+  <act:id type="guid">9e33e3608fa6af8b373f9dc492b676da</act:id>
+  <act:type>INCOME</act:type>
+  <act:commodity>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </act:commodity>
+  <act:commodity-scu>100</act:commodity-scu>
+  <act:parent type="guid">de18bd682c444c5d06079e09c59cf521</act:parent>
+</gnc:account>
+<gnc:account version="2.0.0">
+  <act:name>Coupons</act:name>
+  <act:id type="guid">81b46f8ce82176f5d75c52f6dbeaf5cf</act:id>
+  <act:type>INCOME</act:type>
+  <act:commodity>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </act:commodity>
+  <act:commodity-scu>100</act:commodity-scu>
+  <act:parent type="guid">9e33e3608fa6af8b373f9dc492b676da</act:parent>
+</gnc:account>
+<gnc:account version="2.0.0">
+  <act:name>Equity</act:name>
+  <act:id type="guid">c80ced727295f9b8b320be28f2403042</act:id>
+  <act:type>EQUITY</act:type>
+  <act:commodity>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </act:commodity>
+  <act:commodity-scu>100</act:commodity-scu>
+  <act:parent type="guid">de18bd682c444c5d06079e09c59cf521</act:parent>
+</gnc:account>
+<gnc:transaction version="2.0.0">
+  <trn:id type="guid">6aa8c6343db854c609d5d015bc960aa4</trn:id>
+  <trn:currency>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </trn:currency>
+  <trn:date-posted>
+    <ts:date>2023-12-31 12:00:00 +0000</ts:date>
+  </trn:date-posted>
+  <trn:date-entered>
+    <ts:date>2023-12-31 12:00:00 +0000</ts:date>
+  </trn:date-entered>
+  <trn:description>Synthetic opening balances; bond basis includes a premium</trn:description>
+  <trn:splits>
+    <trn:split>
+      <split:id type="guid">c3bf7f8a67431f5f10e71a8b118edb75</split:id>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>100000/100</split:value>
+      <split:quantity>100000/100</split:quantity>
+      <split:account type="guid">5d36e9e6ecc02d1edef9c543728f067e</split:account>
+    </trn:split>
+    <trn:split>
+      <split:id type="guid">6a9d8d7b1c1e66f769fb6f9df4a5f3f1</split:id>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>510000/100</split:value>
+      <split:quantity>50000/10000</split:quantity>
+      <split:account type="guid">1fbef7e2781c15d1639b6b0ab19082c1</split:account>
+    </trn:split>
+    <trn:split>
+      <split:id type="guid">7a8e1045ff90be33b5c336a713f202b9</split:id>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>2500/100</split:value>
+      <split:quantity>2500/100</split:quantity>
+      <split:account type="guid">de23efc5aad96fd85426d17f558cd725</split:account>
+    </trn:split>
+    <trn:split>
+      <split:id type="guid">f41405d82e903c233dcb6a5eee1b8ff2</split:id>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>2000000/100</split:value>
+      <split:quantity>2000000/100</split:quantity>
+      <split:account type="guid">d9c2b98d1382dfb267db1fe4cf612432</split:account>
+    </trn:split>
+    <trn:split>
+      <split:id type="guid">b2d6838663b75f7154fd369555a6271e</split:id>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>-2612500/100</split:value>
+      <split:quantity>-2612500/100</split:quantity>
+      <split:account type="guid">c80ced727295f9b8b320be28f2403042</split:account>
+    </trn:split>
+  </trn:splits>
+</gnc:transaction>
+<gnc:transaction version="2.0.0">
+  <trn:id type="guid">0ee6a81e23884251bd42b06d69c2e1df</trn:id>
+  <trn:currency>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </trn:currency>
+  <trn:date-posted>
+    <ts:date>2024-01-02 10:59:00 +0000</ts:date>
+  </trn:date-posted>
+  <trn:date-entered>
+    <ts:date>2026-09-07 09:32:29 +0000</ts:date>
+  </trn:date-entered>
+  <trn:description>Зачисление д/с</trn:description>
+  <trn:slots>
+    <slot>
+      <slot:key>date-posted</slot:key>
+      <slot:value type="gdate">
+        <gdate>2024-01-02</gdate>
+      </slot:value>
+    </slot>
+    <slot>
+      <slot:key>notes</slot:key>
+      <slot:value type="string">finreader:v1|8b190692ec9b36cdb7b9cbae6cfd61100bec4f0fd923750dc895e064bd654733|2024-01-01|2024-01-31|470824d1b2ec38346afd17da937c1bf10e609cd72c9a2f8465c0414f209472c7|470824d1b2ec38346afd17da937c1bf10e609cd72c9a2f8465c0414f209472c7:cash:1 source: cash_flow:1</slot:value>
+    </slot>
+  </trn:slots>
+  <trn:splits>
+    <trn:split>
+      <split:id type="guid">5a370e39b2694b50b999617b7530ec97</split:id>
+      <split:reconciled-state>c</split:reconciled-state>
+      <split:reconcile-date>
+        <ts:date>2026-09-07 09:32:29 +0000</ts:date>
+      </split:reconcile-date>
+      <split:value>2000000/100</split:value>
+      <split:quantity>2000000/100</split:quantity>
+      <split:account type="guid">5d36e9e6ecc02d1edef9c543728f067e</split:account>
+    </trn:split>
+    <trn:split>
+      <split:id type="guid">074d64add57d49719388857a89113612</split:id>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>-2000000/100</split:value>
+      <split:quantity>-2000000/100</split:quantity>
+      <split:account type="guid">d9c2b98d1382dfb267db1fe4cf612432</split:account>
+    </trn:split>
+  </trn:splits>
+</gnc:transaction>
+<gnc:transaction version="2.0.0">
+  <trn:id type="guid">68c75a987e0044bd80568b9812bc4387</trn:id>
+  <trn:currency>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </trn:currency>
+  <trn:date-posted>
+    <ts:date>2024-01-09 10:59:00 +0000</ts:date>
+  </trn:date-posted>
+  <trn:date-entered>
+    <ts:date>2026-09-07 09:32:29 +0000</ts:date>
+  </trn:date-entered>
+  <trn:description>Purchase Облигация А</trn:description>
+  <trn:slots>
+    <slot>
+      <slot:key>date-posted</slot:key>
+      <slot:value type="gdate">
+        <gdate>2024-01-09</gdate>
+      </slot:value>
+    </slot>
+    <slot>
+      <slot:key>notes</slot:key>
+      <slot:value type="string">finreader:v1|8b190692ec9b36cdb7b9cbae6cfd61100bec4f0fd923750dc895e064bd654733|2024-01-01|2024-01-31|470824d1b2ec38346afd17da937c1bf10e609cd72c9a2f8465c0414f209472c7|470824d1b2ec38346afd17da937c1bf10e609cd72c9a2f8465c0414f209472c7:trade:2 source: trades:2, cash_flow:2</slot:value>
+    </slot>
+  </trn:slots>
+  <trn:splits>
+    <trn:split>
+      <split:id type="guid">b0a7fa5529bd416ca926ff86a9dfed95</split:id>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>600000/100</split:value>
+      <split:quantity>60000/10000</split:quantity>
+      <split:account type="guid">1fbef7e2781c15d1639b6b0ab19082c1</split:account>
+    </trn:split>
+    <trn:split>
+      <split:id type="guid">18227844153d4eed87819b2e65c2f95b</split:id>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>3000/100</split:value>
+      <split:quantity>3000/100</split:quantity>
+      <split:account type="guid">de23efc5aad96fd85426d17f558cd725</split:account>
+    </trn:split>
+    <trn:split>
+      <split:id type="guid">8b6be31a91a548bab51e6f36681e0bd4</split:id>
+      <split:reconciled-state>c</split:reconciled-state>
+      <split:reconcile-date>
+        <ts:date>2026-09-07 09:32:29 +0000</ts:date>
+      </split:reconcile-date>
+      <split:value>-603000/100</split:value>
+      <split:quantity>-603000/100</split:quantity>
+      <split:account type="guid">5d36e9e6ecc02d1edef9c543728f067e</split:account>
+    </trn:split>
+  </trn:splits>
+</gnc:transaction>
+<gnc:transaction version="2.0.0">
+  <trn:id type="guid">8ceac6312fb848bb98bd30abd9e54cf0</trn:id>
+  <trn:currency>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </trn:currency>
+  <trn:date-posted>
+    <ts:date>2024-01-09 10:59:00 +0000</ts:date>
+  </trn:date-posted>
+  <trn:date-entered>
+    <ts:date>2026-09-07 09:32:29 +0000</ts:date>
+  </trn:date-entered>
+  <trn:description>Purchase Облигация А</trn:description>
+  <trn:slots>
+    <slot>
+      <slot:key>date-posted</slot:key>
+      <slot:value type="gdate">
+        <gdate>2024-01-09</gdate>
+      </slot:value>
+    </slot>
+    <slot>
+      <slot:key>notes</slot:key>
+      <slot:value type="string">finreader:v1|8b190692ec9b36cdb7b9cbae6cfd61100bec4f0fd923750dc895e064bd654733|2024-01-01|2024-01-31|470824d1b2ec38346afd17da937c1bf10e609cd72c9a2f8465c0414f209472c7|470824d1b2ec38346afd17da937c1bf10e609cd72c9a2f8465c0414f209472c7:trade:1 source: trades:1, cash_flow:2</slot:value>
+    </slot>
+  </trn:slots>
+  <trn:splits>
+    <trn:split>
+      <split:id type="guid">00b33a9ac028488fbc851699dec7384c</split:id>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>400000/100</split:value>
+      <split:quantity>40000/10000</split:quantity>
+      <split:account type="guid">1fbef7e2781c15d1639b6b0ab19082c1</split:account>
+    </trn:split>
+    <trn:split>
+      <split:id type="guid">4eba6ac7a5624d9fbc6bc0cfda0bb53f</split:id>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>2000/100</split:value>
+      <split:quantity>2000/100</split:quantity>
+      <split:account type="guid">de23efc5aad96fd85426d17f558cd725</split:account>
+    </trn:split>
+    <trn:split>
+      <split:id type="guid">9d2f03d4a08f4df1862b3c8b206124cf</split:id>
+      <split:reconciled-state>c</split:reconciled-state>
+      <split:reconcile-date>
+        <ts:date>2026-09-07 09:32:29 +0000</ts:date>
+      </split:reconcile-date>
+      <split:value>-402000/100</split:value>
+      <split:quantity>-402000/100</split:quantity>
+      <split:account type="guid">5d36e9e6ecc02d1edef9c543728f067e</split:account>
+    </trn:split>
+  </trn:splits>
+</gnc:transaction>
+<gnc:transaction version="2.0.0">
+  <trn:id type="guid">5181aaa2c2f24f50b0339a81b0f8d394</trn:id>
+  <trn:currency>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </trn:currency>
+  <trn:date-posted>
+    <ts:date>2024-01-09 10:59:00 +0000</ts:date>
+  </trn:date-posted>
+  <trn:date-entered>
+    <ts:date>2026-09-07 09:32:29 +0000</ts:date>
+  </trn:date-entered>
+  <trn:description>Комиссия Биржи от 08.01.2024</trn:description>
+  <trn:slots>
+    <slot>
+      <slot:key>date-posted</slot:key>
+      <slot:value type="gdate">
+        <gdate>2024-01-09</gdate>
+      </slot:value>
+    </slot>
+    <slot>
+      <slot:key>notes</slot:key>
+      <slot:value type="string">finreader:v1|8b190692ec9b36cdb7b9cbae6cfd61100bec4f0fd923750dc895e064bd654733|2024-01-01|2024-01-31|470824d1b2ec38346afd17da937c1bf10e609cd72c9a2f8465c0414f209472c7|470824d1b2ec38346afd17da937c1bf10e609cd72c9a2f8465c0414f209472c7:cash:3 source: cash_flow:3</slot:value>
+    </slot>
+  </trn:slots>
+  <trn:splits>
+    <trn:split>
+      <split:id type="guid">1cf32b0d591a480b8ba8722ce047963e</split:id>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>100/100</split:value>
+      <split:quantity>100/100</split:quantity>
+      <split:account type="guid">fcf1d91946bf018ffc2367a95733336a</split:account>
+    </trn:split>
+    <trn:split>
+      <split:id type="guid">f2b7597d2cc749998b7d34434aece75c</split:id>
+      <split:reconciled-state>c</split:reconciled-state>
+      <split:reconcile-date>
+        <ts:date>2026-09-07 09:32:29 +0000</ts:date>
+      </split:reconcile-date>
+      <split:value>-100/100</split:value>
+      <split:quantity>-100/100</split:quantity>
+      <split:account type="guid">5d36e9e6ecc02d1edef9c543728f067e</split:account>
+    </trn:split>
+  </trn:splits>
+</gnc:transaction>
+<gnc:transaction version="2.0.0">
+  <trn:id type="guid">bb2f4dda0c3d46b59f45d5986f761d87</trn:id>
+  <trn:currency>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </trn:currency>
+  <trn:date-posted>
+    <ts:date>2024-01-09 10:59:00 +0000</ts:date>
+  </trn:date-posted>
+  <trn:date-entered>
+    <ts:date>2026-09-07 09:32:29 +0000</ts:date>
+  </trn:date-entered>
+  <trn:description>Комиссия Брокера оборотная от 08.01.2024</trn:description>
+  <trn:slots>
+    <slot>
+      <slot:key>date-posted</slot:key>
+      <slot:value type="gdate">
+        <gdate>2024-01-09</gdate>
+      </slot:value>
+    </slot>
+    <slot>
+      <slot:key>notes</slot:key>
+      <slot:value type="string">finreader:v1|8b190692ec9b36cdb7b9cbae6cfd61100bec4f0fd923750dc895e064bd654733|2024-01-01|2024-01-31|470824d1b2ec38346afd17da937c1bf10e609cd72c9a2f8465c0414f209472c7|470824d1b2ec38346afd17da937c1bf10e609cd72c9a2f8465c0414f209472c7:cash:4 source: cash_flow:4</slot:value>
+    </slot>
+  </trn:slots>
+  <trn:splits>
+    <trn:split>
+      <split:id type="guid">35147ee20ea8461da01a22016e55b000</split:id>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>1000/100</split:value>
+      <split:quantity>1000/100</split:quantity>
+      <split:account type="guid">fcf1d91946bf018ffc2367a95733336a</split:account>
+    </trn:split>
+    <trn:split>
+      <split:id type="guid">1a1a5398d2ce4b7eb6bf1416f0701da9</split:id>
+      <split:reconciled-state>c</split:reconciled-state>
+      <split:reconcile-date>
+        <ts:date>2026-09-07 09:32:29 +0000</ts:date>
+      </split:reconcile-date>
+      <split:value>-1000/100</split:value>
+      <split:quantity>-1000/100</split:quantity>
+      <split:account type="guid">5d36e9e6ecc02d1edef9c543728f067e</split:account>
+    </trn:split>
+  </trn:splits>
+</gnc:transaction>
+<gnc:transaction version="2.0.0">
+  <trn:id type="guid">8ebe51fdad3243e7bc3aad8e612ebdd1</trn:id>
+  <trn:currency>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </trn:currency>
+  <trn:date-posted>
+    <ts:date>2024-01-15 10:59:00 +0000</ts:date>
+  </trn:date-posted>
+  <trn:date-entered>
+    <ts:date>2026-09-07 09:32:29 +0000</ts:date>
+  </trn:date-entered>
+  <trn:description>Зачисление д/с (купон 1 по Облигация А)</trn:description>
+  <trn:slots>
+    <slot>
+      <slot:key>date-posted</slot:key>
+      <slot:value type="gdate">
+        <gdate>2024-01-15</gdate>
+      </slot:value>
+    </slot>
+    <slot>
+      <slot:key>notes</slot:key>
+      <slot:value type="string">finreader:v1|8b190692ec9b36cdb7b9cbae6cfd61100bec4f0fd923750dc895e064bd654733|2024-01-01|2024-01-31|470824d1b2ec38346afd17da937c1bf10e609cd72c9a2f8465c0414f209472c7|470824d1b2ec38346afd17da937c1bf10e609cd72c9a2f8465c0414f209472c7:cash:5 source: cash_flow:5</slot:value>
+    </slot>
+  </trn:slots>
+  <trn:splits>
+    <trn:split>
+      <split:id type="guid">066f7045f56f41a699b406753bb597dd</split:id>
+      <split:reconciled-state>c</split:reconciled-state>
+      <split:reconcile-date>
+        <ts:date>2026-09-07 09:32:29 +0000</ts:date>
+      </split:reconcile-date>
+      <split:value>10000/100</split:value>
+      <split:quantity>10000/100</split:quantity>
+      <split:account type="guid">5d36e9e6ecc02d1edef9c543728f067e</split:account>
+    </trn:split>
+    <trn:split>
+      <split:id type="guid">8446a756fc634e04b2001030b81120a4</split:id>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>-10000/100</split:value>
+      <split:quantity>-10000/100</split:quantity>
+      <split:account type="guid">de23efc5aad96fd85426d17f558cd725</split:account>
+    </trn:split>
+  </trn:splits>
+</gnc:transaction>
+<gnc:transaction version="2.0.0">
+  <trn:id type="guid">a638f7a6275647658df700430473fe5a</trn:id>
+  <trn:currency>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </trn:currency>
+  <trn:date-posted>
+    <ts:date>2024-01-20 10:59:00 +0000</ts:date>
+  </trn:date-posted>
+  <trn:date-entered>
+    <ts:date>2026-09-07 09:32:29 +0000</ts:date>
+  </trn:date-entered>
+  <trn:description>Зачисление д/с (амортизация Облигация А)</trn:description>
+  <trn:slots>
+    <slot>
+      <slot:key>date-posted</slot:key>
+      <slot:value type="gdate">
+        <gdate>2024-01-20</gdate>
+      </slot:value>
+    </slot>
+    <slot>
+      <slot:key>notes</slot:key>
+      <slot:value type="string">finreader:v1|8b190692ec9b36cdb7b9cbae6cfd61100bec4f0fd923750dc895e064bd654733|2024-01-01|2024-01-31|470824d1b2ec38346afd17da937c1bf10e609cd72c9a2f8465c0414f209472c7|470824d1b2ec38346afd17da937c1bf10e609cd72c9a2f8465c0414f209472c7:cash:6 source: cash_flow:6</slot:value>
+    </slot>
+  </trn:slots>
+  <trn:splits>
+    <trn:split>
+      <split:id type="guid">d7699b1e77194f5184adf856ea6242f5</split:id>
+      <split:reconciled-state>c</split:reconciled-state>
+      <split:reconcile-date>
+        <ts:date>2026-09-07 09:32:29 +0000</ts:date>
+      </split:reconcile-date>
+      <split:value>300000/100</split:value>
+      <split:quantity>300000/100</split:quantity>
+      <split:account type="guid">5d36e9e6ecc02d1edef9c543728f067e</split:account>
+    </trn:split>
+    <trn:split>
+      <split:id type="guid">c0f60e5ee3804da289d08b02d0d24183</split:id>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>-300000/100</split:value>
+      <split:quantity>0/10000</split:quantity>
+      <split:account type="guid">1fbef7e2781c15d1639b6b0ab19082c1</split:account>
+    </trn:split>
+  </trn:splits>
+</gnc:transaction>
+<gnc:transaction version="2.0.0">
+  <trn:id type="guid">4171f927b9ad4152ac4c0940755de600</trn:id>
+  <trn:currency>
+    <cmdty:space>CURRENCY</cmdty:space>
+    <cmdty:id>RUB</cmdty:id>
+  </trn:currency>
+  <trn:date-posted>
+    <ts:date>2024-01-31 10:59:00 +0000</ts:date>
+  </trn:date-posted>
+  <trn:date-entered>
+    <ts:date>2026-09-07 09:32:29 +0000</ts:date>
+  </trn:date-entered>
+  <trn:description>Period-end accrued interest: Облигация А</trn:description>
+  <trn:slots>
+    <slot>
+      <slot:key>date-posted</slot:key>
+      <slot:value type="gdate">
+        <gdate>2024-01-31</gdate>
+      </slot:value>
+    </slot>
+    <slot>
+      <slot:key>notes</slot:key>
+      <slot:value type="string">finreader:v1|8b190692ec9b36cdb7b9cbae6cfd61100bec4f0fd923750dc895e064bd654733|2024-01-01|2024-01-31|470824d1b2ec38346afd17da937c1bf10e609cd72c9a2f8465c0414f209472c7|470824d1b2ec38346afd17da937c1bf10e609cd72c9a2f8465c0414f209472c7:nkd:RU000TEST001 source: portfolio:RU000TEST001</slot:value>
+    </slot>
+  </trn:slots>
+  <trn:splits>
+    <trn:split>
+      <split:id type="guid">eb8e67db794f43ca92df8a18ff56eb7b</split:id>
+      <split:reconciled-state>c</split:reconciled-state>
+      <split:reconcile-date>
+        <ts:date>2026-09-07 09:32:29 +0000</ts:date>
+      </split:reconcile-date>
+      <split:value>4500/100</split:value>
+      <split:quantity>4500/100</split:quantity>
+      <split:account type="guid">de23efc5aad96fd85426d17f558cd725</split:account>
+    </trn:split>
+    <trn:split>
+      <split:id type="guid">6426ac758d19431bb4a29f909035fd32</split:id>
+      <split:reconciled-state>n</split:reconciled-state>
+      <split:value>-4500/100</split:value>
+      <split:quantity>-4500/100</split:quantity>
+      <split:account type="guid">81b46f8ce82176f5d75c52f6dbeaf5cf</split:account>
+    </trn:split>
+  </trn:splits>
+</gnc:transaction>
+</gnc:book>
+</gnc-v2>

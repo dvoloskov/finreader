@@ -13,6 +13,8 @@ Status code meanings come from the report footnote:
   У  - на конец периода сделка урегулирована.
 """
 
+from .._validation import validate_table
+
 from dataclasses import dataclass
 from datetime import date, time
 from decimal import Decimal
@@ -158,6 +160,8 @@ def parse_trades(soup: BeautifulSoup) -> Trades | None:
     table = find_table_by_title(soup, _TITLE_PREFIX)
     if table is None:
         return None
+
+    validate_table(table, 'Сделки купли/продажи ценных бумаг')
 
     rows: list[Trade] = []
     total: TradesTotal | None = None

@@ -16,6 +16,8 @@ the same heuristics the shared helpers use, and reuse ``cell_text``,
 """
 
 import re
+from .._validation import validate_table
+
 from dataclasses import dataclass
 from decimal import Decimal
 from typing import TYPE_CHECKING
@@ -112,6 +114,8 @@ def parse_income_expenses_tax_summary(
     table = find_table_by_title(soup, _TITLE_PREFIX)
     if table is None:
         return None
+
+    validate_table(table, 'III. ИТОГОВЫЙ ФИНАНСОВЫЙ РЕЗУЛЬТАТ')
 
     rows: list[TaxSummaryRow] = []
     current_rate: int | None = None

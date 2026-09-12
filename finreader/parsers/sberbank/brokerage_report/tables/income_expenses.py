@@ -1,5 +1,7 @@
 """income_expenses table parsing (Table I - without loss carryforward)."""
 
+from .._validation import validate_table
+
 from dataclasses import dataclass
 from decimal import Decimal
 
@@ -8,7 +10,6 @@ from bs4 import BeautifulSoup
 from finreader.parsers.sberbank.brokerage_report._common import (
     cell_text,
     find_table_by_title,
-    iter_data_rows,
     parse_money,
     row_classes,
 )
@@ -52,28 +53,8 @@ def parse_income_expenses(soup: BeautifulSoup) -> IncomeExpenses | None:
     if table is None:
         return None
 
-    # Get data rows (skips row-number rows, summary rows, section rows)
-    data_rows = iter_data_rows(table)
+    validate_table(table, 'I. ДОХОДЫ И РАСХОДЫ')
 
-    # Parse each data row
-    rows = []
-    for row in data_rows:
-        # Expect 7 columns
-        if len(row) != 7:
-            continue  # Skip malformed rows
-
-        # Parse each column
-        # Column 0: Код договора
-        contract_code = (
-            cell_text(table.find_all('tr')[3].find_all('td')[0])
-            if len(row) == 7
-            else row[0]
-        )
-
-        # Actually, let me use a different approach - get cells directly from the table row
-        # The iter_data_rows returns cell text, but we need to parse with proper helpers
-
-    # Actually, let me redo this properly - use the table structure directly
     rows: list[IncomeExpenseRow] = []
     for tr in table.find_all('tr'):
         # Skip header rows and row-number rows
@@ -110,8 +91,5 @@ def parse_income_expenses(soup: BeautifulSoup) -> IncomeExpenses | None:
             deductions=deductions,
         )
         rows.append(row)
-
-    if not rows:
-        return None
 
     return IncomeExpenses(rows=rows)

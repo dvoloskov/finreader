@@ -1,5 +1,7 @@
 """Parser for asset_valuation table — "Оценка активов, руб."."""
 
+from .._validation import validate_table
+
 from dataclasses import dataclass
 
 from bs4 import BeautifulSoup
@@ -69,6 +71,8 @@ def parse_asset_valuation(soup: BeautifulSoup) -> AssetValuation | None:
     if table is None:
         return None
 
+    validate_table(table, 'Оценка активов, руб.')
+
     rows: list[AssetValuationRow] = []
     total = None
 
@@ -97,7 +101,11 @@ def parse_asset_valuation(soup: BeautifulSoup) -> AssetValuation | None:
                 end_total = parse_money(cell_text(cells[2]))
                 change_total = parse_money(cell_text(cells[3]))
 
-                if start_total and end_total and change_total:
+                if (
+                    start_total is not None
+                    and end_total is not None
+                    and change_total is not None
+                ):
                     total = AssetValuationTotals(
                         start_total=start_total,
                         end_total=end_total,

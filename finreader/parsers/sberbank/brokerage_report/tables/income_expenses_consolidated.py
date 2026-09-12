@@ -17,6 +17,8 @@ Columns (9):
 Note: client_name may contain &nbsp; which must be normalized to space.
 """
 
+from .._validation import validate_table
+
 from dataclasses import dataclass
 from decimal import Decimal
 
@@ -66,6 +68,8 @@ def parse_income_expenses_consolidated(
     table = find_table_by_title(soup, 'II. ДОХОДЫ И РАСХОДЫ')
     if table is None:
         return None
+
+    validate_table(table, 'II. ДОХОДЫ И РАСХОДЫ')
 
     # Get data rows
     data_rows = iter_data_rows(table)

@@ -1,5 +1,7 @@
 """Parse the 'Денежные средства' (cash balances) table."""
 
+from .._validation import validate_table
+
 from dataclasses import dataclass
 from decimal import Decimal
 
@@ -66,6 +68,8 @@ def parse_cash_balances(soup: BeautifulSoup) -> CashBalances | None:
     table = find_table_by_title(soup, 'Денежные средства')
     if table is None:
         return None
+
+    validate_table(table, 'Денежные средства')
 
     rows: list[CashBalanceRow] = []
     totals: list[CashBalanceTotal] = []

@@ -1,0 +1,12 @@
+# Synthetic configuration only. Copy into ignored local/ for private accounts.
+contract_code = "TEST001"
+broker_root = "Assets:Broker"
+cash = "Assets:Broker:Рубли"
+external = "Assets:Bank"
+fees = "Expenses:Broker"
+income = "Income:Coupons"
+
+[securities.RU000TEST001]
+bond = "Assets:Broker:Облигация А"
+nkd = "Assets:Broker:Облигация А:НКД"
+commodity = "MICEX::RU000TEST001"

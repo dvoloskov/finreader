@@ -36,7 +36,7 @@ CONVENTIONS for all table parsers:
 """
 
 from datetime import date, time
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
 from bs4 import BeautifulSoup, Tag
@@ -117,8 +117,9 @@ def find_table_by_title(soup: BeautifulSoup, title_prefix: str) -> Tag | None:
 
     This function walks through <p> and <table> elements in document order,
     tracking the most recent <p>'s stripped text. When a <table> is reached,
-    it is associated with the last seen <p>. Returns the first table whose
-    associated title startswith(title_prefix).
+    it is associated with the last seen <p>. Returns the unique table whose
+    associated title startswith(title_prefix), rejecting duplicate sections.
+    A heading is consumed once, so an untitled footer table cannot reuse it.
 
     This is more robust than previous_sibling walks because it handles
     the actual document structure of Sberbank reports.
@@ -132,13 +133,17 @@ def find_table_by_title(soup: BeautifulSoup, title_prefix: str) -> Tag | None:
 
     """
     last_p_text = ''
+    matched: Tag | None = None
     for element in soup.find_all(['p', 'table']):
         if element.name == 'p':
             last_p_text = element.get_text(strip=True)
         elif element.name == 'table':
             if last_p_text.startswith(title_prefix):
-                return element
-    return None
+                if matched is not None:
+                    raise ValueError(f'{title_prefix}: duplicate section')
+                matched = element
+            last_p_text = ''
+    return matched
 
 
 def iter_data_rows(table: Tag) -> list[list[str]]:
@@ -176,7 +181,9 @@ def iter_data_rows(table: Tag) -> list[list[str]]:
         first_cell = row.find('td')
         if first_cell and int_attr(first_cell, 'colspan', 1) > 1:
             cell_text_val = cell_text(first_cell)
-            if cell_text_val.startswith(('Площадка:', 'Ставка', 'Итого')):
+            if not cell_text_val or cell_text_val.startswith(
+                ('Площадка:', 'Ставка', 'Итого')
+            ):
                 continue
 
         # Extract cell text for data rows
@@ -246,7 +253,13 @@ def parse_money(text: str | None) -> Decimal | None:
     # Replace comma with period for Decimal parsing
     cleaned = cleaned.replace(',', '.')
 
-    return Decimal(cleaned)
+    try:
+        value = Decimal(cleaned)
+    except InvalidOperation as error:
+        raise ValueError(f'Invalid monetary value: {text!r}') from error
+    if not value.is_finite():
+        raise ValueError(f'Non-finite monetary value: {text!r}')
+    return value
 
 
 def parse_int(text: str | None) -> int | None:
